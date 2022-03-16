@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fund performance dashboard</title>
+    <link rel="icon" href="https://freepngimg.com/download/roi/8-2-roi-picture.png">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="https://unpkg.com/vuex@4" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Cryptocoin Investment Fund</h1>
+    </header>
+    <section id="events">
+      <button v-on:click="getQuotes()">Get quotes</button>
+      <h2>Current quotes:</h2>
+      
+      <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Ticker</th>
+                <th>Current Quote</th>
+                <th>1h change</th>
+                <th>24h change</th>
+                <th>7d change</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>AXS</td>
+                <td>${{ AXS_currQuote }}</td>
+                <td v-bind:class="AXS_price_change_perc_1h >= 0 ? 'green' : 'red'">{{AXS_price_change_perc_1h}}%</td>
+                <td v-bind:class="AXS_price_change_perc_24h >= 0 ? 'green' : 'red'">{{AXS_price_change_perc_24h}}%</td>
+                <td v-bind:class="AXS_price_change_perc_7d >= 0 ? 'green' : 'red'">{{AXS_price_change_perc_7d}}%</td>
+            </tr>
+            <tr class="active-row">
+              <td>BTC</td>
+              <td>${{ BTC_currQuote }}</td>
+                <td v-bind:class="BTC_price_change_perc_1h >= 0 ? 'green' : 'red'">{{BTC_price_change_perc_1h}}%</td>
+                <td v-bind:class="BTC_price_change_perc_24h >= 0 ? 'green' : 'red'">{{BTC_price_change_perc_24h}}%</td>
+                <td v-bind:class="BTC_price_change_perc_7d >= 0 ? 'green' : 'red'">{{BTC_price_change_perc_7d}}%</td>
+            </tr>
+            <!-- and so on... -->
+        </tbody>
+    </table>
+    </section>
+  </body>
+</html>
