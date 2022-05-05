@@ -64,6 +64,16 @@
     font: inherit;
     border: 1px solid #ccc;
   }
+
+  #event-info {
+    background-color: #dddddd;
+    font-size: 0.75em;
+    font-style: italic;
+    color: grey;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   
   #events input:focus {
     outline: none;

@@ -12,14 +12,18 @@ const app = Vue.createApp({
         BTC_price_change_perc_24h: 0,
         BTC_price_change_perc_7d: 0,
         
+        last_updated: "",
         
       };
     },
     methods: {
   
       getQuotes() {
+        interval_time = 120 * 1000;
         this.AXS_quote();
+        setInterval(this.AXS_quote, interval_time );
         this.BTC_quote();
+        setInterval(this.BTC_quote, interval_time );
       },
   
       async AXS_quote() {
@@ -30,6 +34,8 @@ const app = Vue.createApp({
           this.AXS_price_change_perc_1h = this.AXS_APIresponse[0].price_change_percentage_1h_in_currency.toFixed(2);
           this.AXS_price_change_perc_24h = this.AXS_APIresponse[0].price_change_percentage_24h_in_currency.toFixed(2);
           this.AXS_price_change_perc_7d = this.AXS_APIresponse[0].price_change_percentage_7d_in_currency.toFixed(2);
+          this.last_updated = this.AXS_APIresponse[0].last_updated.slice(0, 19);
+          this.last_updated = this.last_updated.replace("T", " ");
           console.log(this.AXS_APIresponse);
         } catch (error) {
           console.log(error);
@@ -57,4 +63,3 @@ const app = Vue.createApp({
   });
   
   app.mount('#events');
-l  

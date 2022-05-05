@@ -21,7 +21,7 @@
     <section id="events">
       <button v-on:click="getQuotes()">Get quotes</button>
       <h2>Current quotes:</h2>
-      
+      <span id="event-info"> Last updated: <b>{{ last_updated }}</b></span>
       <table class="styled-table">
         <thead>
             <tr>
