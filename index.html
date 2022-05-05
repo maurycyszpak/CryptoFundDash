@@ -41,7 +41,14 @@
                 <td v-bind:class="AXS_price_change_perc_7d >= 0 ? 'green' : 'red'">{{AXS_price_change_perc_7d}}%</td>
             </tr>
             <tr class="active-row">
-              <td>ABCDEF</td>
+              <td>GHX</td>
+              <td>${{ GHX_currQuote }}</td>
+                <td v-bind:class="GHX_price_change_perc_1h >= 0 ? 'green' : 'red'">{{GHX_price_change_perc_1h}}%</td>
+                <td v-bind:class="GHX_price_change_perc_24h >= 0 ? 'green' : 'red'">{{GHX_price_change_perc_24h}}%</td>
+                <td v-bind:class="GHX_price_change_perc_7d >= 0 ? 'green' : 'red'">{{GHX_price_change_perc_7d}}%</td>
+            </tr>
+            <tr class="active-row">
+              <td>BTC</td>
               <td>${{ BTC_currQuote }}</td>
                 <td v-bind:class="BTC_price_change_perc_1h >= 0 ? 'green' : 'red'">{{BTC_price_change_perc_1h}}%</td>
                 <td v-bind:class="BTC_price_change_perc_24h >= 0 ? 'green' : 'red'">{{BTC_price_change_perc_24h}}%</td>
